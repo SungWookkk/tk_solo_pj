@@ -1,17 +1,9 @@
 // src/app/layout.tsx
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Header from "./Header";
 
 export const metadata: Metadata = {
   title: "태권도 웹",
@@ -19,29 +11,28 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children,                                    // 페이지별 실제 콘텐츠
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode;                  // 자식 타입 선언
 }) {
+  // 서버 컴포넌트이므로 usePathname 못 씁니다
   return (
     <html lang="ko">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className="antialiased"
+      >
         <div className="flex flex-col min-h-screen">
-          {/* 헤더 */}
-          <header className="bg-white shadow-md h-16 flex items-center px-6">
-            <h1 className="text-xl font-bold">태권도 웹</h1>
-          </header>
+          {/* 헤더: 클라이언트 컴포넌트로 분리 */}
+          <Header />
 
           {/* 메인 콘텐츠 */}
           <main className="flex-1 container mx-auto px-6 py-8">
-            {children}
+            {children}                         {/* 페이지별 컴포넌트 렌더링 */}
           </main>
 
           {/* 푸터 */}
           <footer className="bg-gray-100 text-center py-4">
-            <p className="text-sm text-gray-600">
-              2025 태권도 웹.
-            </p>
+            <p className="text-sm text-gray-600">2025 태권도 웹.</p>
           </footer>
         </div>
       </body>
