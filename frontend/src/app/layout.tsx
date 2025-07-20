@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./Header";
+import HideOnDocs from "@/components/HideonDocs";
 
 export const metadata: Metadata = {
   title: "태권도 웹",
@@ -23,17 +24,21 @@ export default function RootLayout({
       >
         <div className="flex flex-col min-h-screen">
           {/* 헤더: 클라이언트 컴포넌트로 분리 */}
-          <Header />
+          <HideOnDocs>
+           <Header />
+        </HideOnDocs>
 
           {/* 메인 콘텐츠 */}
           <main className="flex-1 container mx-auto px-6 py-8">
-            {children}                         {/* 페이지별 컴포넌트 렌더링 */}
+            {children}
           </main>
 
           {/* 푸터 */}
-          <footer className="bg-gray-100 text-center py-4">
-            <p className="text-sm text-gray-600">2025 태권도 웹.</p>
-          </footer>
+         <HideOnDocs>
+           <footer className="bg-gray-100 text-center py-4">
+             <p className="text-sm text-gray-600">2025 태권도 웹.</p>
+           </footer>
+         </HideOnDocs>
         </div>
       </body>
     </html>
