@@ -1,1 +1,7 @@
 __pycache__/\n*.pyc\n.env\n.venv\n.idea/\n*.log
+__pycache__/
+*.pyc
+.env
+
+# Poetry 환경
+.poetry/
