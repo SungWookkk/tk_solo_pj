@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "taekwondo-backend"            # 패키지명
+version = "0.1.0"                     # 초기 버전
+description = "태권도 웹 API 서버"
+authors = ["Your Name <you@example.com>"]
+
+# app/ 폴더를 패키지 소스코드로 포함
+packages = [
+  { include = "app" }
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.12"                      # Python 버전 제한
+fastapi = "^0.101.0"                  # 웹 프레임워크
+uvicorn = { extras = ["standard"], version = "^0.23.2" } # ASGI 서버
+psycopg2-binary = "^2.9.7"
+SQLAlchemy = "^2.0.41" # ORM
+python-dotenv = "^1.0.0"              # .env 파일 로드
+passlib = { version = "^1.7.4", extras = ["bcrypt"] }
+python-jose = "^3.3.0"                # JWT 생성/검증
+
+[tool.poetry.scripts]
+start = "uvicorn app.main:app --reload"  # `poetry run start` 로 서버 실행
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

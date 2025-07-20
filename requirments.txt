@@ -1,0 +1,7 @@
+fastapi           # 웹 프레임워크
+uvicorn[standard] # ASGI 서버
+SQLAlchemy        # ORM
+asyncpg           # PostgreSQL 비동기 드라이버
+python-dotenv     # .env 자동 로딩
+passlib[bcrypt]   # 비밀번호 해싱
+python-jose       # JWT 생성/검증
