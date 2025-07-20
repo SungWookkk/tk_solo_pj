@@ -1,0 +1,28 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "태권도 웹 API",
+    "version": "1.0.0",
+    "description": "태권도 웹의 REST API 문서입니다."
+  },
+  "paths": {
+    "/competitions": {
+      "get": {
+        "summary": "대회 목록 조회",
+        "responses": {
+          "200": {
+            "description": "성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
